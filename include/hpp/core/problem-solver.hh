@@ -224,6 +224,8 @@ namespace hpp {
     protected:
       /// Store constraints until call to solve.
       ConstraintSetPtr_t constraints_;
+      /// Map of constraints
+      DifferentiableFunctionMap_t NumericalConstraintMap_;
 
     private:
       typedef std::map < std::string, PathPlannerBuilder_t >
@@ -263,8 +265,6 @@ namespace hpp {
       value_type errorThreshold_;
       // Maximal number of iterations for numerical constraint resolution
       size_type maxIterations_;
-      /// Map of constraints
-      DifferentiableFunctionMap_t NumericalConstraintMap_;
 
     }; // class ProblemSolver
   } // namespace core

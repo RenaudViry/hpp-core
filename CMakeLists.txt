@@ -59,6 +59,7 @@ SET(${PROJECT_NAME}_HEADERS
   include/hpp/core/fwd.hh
   include/hpp/core/joint-bound-validation.hh
   include/hpp/core/locked-dof.hh
+  include/hpp/core/manipulation-solver.hh
   include/hpp/core/node.hh
   include/hpp/core/path.hh
   include/hpp/core/path-optimizer.hh

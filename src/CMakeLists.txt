@@ -31,6 +31,7 @@ SET(${LIBRARY_NAME}_SOURCES
   discretized-collision-checking.cc
   extracted-path.hh
   joint-bound-validation.cc
+  manipulation-solver.cc
   nearest-neighbor.hh
   node.cc
   path.cc

@@ -51,6 +51,7 @@ namespace hpp {
     HPP_PREDEF_CLASS (ExtractedPath);
     HPP_PREDEF_CLASS (JointBoundValidation);
     HPP_PREDEF_CLASS (LockedDof);
+    class ManipulationSolver;
     class Node;
     HPP_PREDEF_CLASS (Path);
     HPP_PREDEF_CLASS (PathOptimizer);
@@ -113,6 +114,7 @@ namespace hpp {
     typedef model::HalfJointJacobian_t HalfJointJacobian_t;
     typedef model::JointVector_t JointVector_t;
     typedef boost::shared_ptr <LockedDof> LockedDofPtr_t;
+    typedef ManipulationSolver* ManipulationSolverPtr_t;
     typedef model::matrix_t matrix_t;
     typedef Eigen::Ref <const matrix_t> matrixIn_t;
     typedef Eigen::Ref <matrix_t> matrixOut_t;
