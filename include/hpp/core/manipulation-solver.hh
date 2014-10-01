@@ -24,34 +24,55 @@
 
 namespace hpp {
   namespace core {
-    /// Set and solve a path planning problem
-    ///
-    /// This class is a container that does the interface between
-    /// hpp-core library and component to be running in a middleware
-    /// like CORBA or ROS.
-    class HPP_CORE_DLLAPI ManipulationSolver : public ProblemSolver {
-    public:
-    	ManipulationSolver();
+	/// Handle constraints for a manipulation planning problem
+	///
+	/// This class is derived from ProblemSolver class and
+	/// is a container that does the interface between
+	/// hpp-core library and component to be running in a middleware
+	/// like CORBA or ROS.
+	class HPP_CORE_DLLAPI ManipulationSolver : public ProblemSolver {
+	public:
+		/// Constructor
+		ManipulationSolver();
+
+		/// Accessor to Position Constraints
 		hpp::constraints::PositionPtr_t 				getPositionConstraint 				(const std::string& constraintName);
+		/// Accessor to Orientation Constraints
 		hpp::constraints::OrientationPtr_t 				getOrientationConstraint 			(const std::string& constraintName);
+		/// Accessor to Relative Position Constraints
 		hpp::constraints::RelativePositionPtr_t 		getRelativePositionConstraint 		(const std::string& constraintName);
+		/// Accessor to Relative Orienation Constraints
 		hpp::constraints::RelativeOrientationPtr_t 		getRelativeOrientationConstraint 	(const std::string& constraintName);
+		/// Accessor to Relative Transformation Constraints
 		hpp::constraints::RelativeTransformationPtr_t 	getRelativeTransformationConstraint	(const std::string& constraintName);
+		/// Accessor to Relative Center Of Mass Constraints
 		hpp::constraints::RelativeComPtr_t 				getRelativeComConstraint			(const std::string& constraintName);
 
+		/// Create a new Position Constraint
 		void addPositionConstraint (const std::string& name, const hpp::constraints::PositionPtr_t& constraint);
+		/// Create a new Orientation Constraint
 		void addOrientationConstraint (const std::string& name, const hpp::constraints::OrientationPtr_t& constraint);
+		/// Create a new Relative Position Constraint
 		void addRelativePositionConstraint (const std::string& name, const hpp::constraints::RelativePositionPtr_t& constraint);
+		/// Create a new Relative Orientation Constraint
 		void addRelativeOrientationConstraint (const std::string& name, const hpp::constraints::RelativeOrientationPtr_t& constraint);
+		/// Create a new Relative Transformation Constraint
 		void addRelativeTransformationConstraint (const std::string& name, const hpp::constraints::RelativeTransformationPtr_t& constraint);
+		/// Create a new Relative Center Of Mass Constraint
 		void addRelativeComConstraint (const std::string& name, const hpp::constraints::RelativeComPtr_t& constraint);
 
-    private:
+	private:
+		/// Vector of Position Constraints
 		std::vector <hpp::constraints::PositionPtr_t>				positionConstraints_;
+		/// Vector of Orientation Constraints
 		std::vector <hpp::constraints::OrientationPtr_t> 			orientationConstraints_;
+		/// Vector of Relative Position Constraints
 		std::vector <hpp::constraints::RelativePositionPtr_t>		relativePositionConstraints_;
+		/// Vector of Relative Orientation Constraints
 		std::vector <hpp::constraints::RelativeOrientationPtr_t>	relativeOrientationConstraints_;
+		/// Vector of Relative Transformation Constraints
 		std::vector <hpp::constraints::RelativeTransformationPtr_t>	relativeTransformationConstraints_;
+		/// Vector of Relative Center Of Mass Constraints
 		std::vector <hpp::constraints::RelativeComPtr_t>			relativeComConstraints_;
 	};
   }
