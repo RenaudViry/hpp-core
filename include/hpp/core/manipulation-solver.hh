@@ -22,6 +22,8 @@
 # include <hpp/core/problem-solver.hh>
 # include <hpp/constraints/fwd.hh>
 
+#include <map>
+
 namespace hpp {
   namespace core {
 	/// Handle constraints for a manipulation planning problem
@@ -63,17 +65,17 @@ namespace hpp {
 
 	private:
 		/// Vector of Position Constraints
-		std::vector <hpp::constraints::PositionPtr_t>				positionConstraints_;
+		std::map <std::string, hpp::constraints::PositionPtr_t>					positionConstraints_;
 		/// Vector of Orientation Constraints
-		std::vector <hpp::constraints::OrientationPtr_t> 			orientationConstraints_;
+		std::map <std::string, hpp::constraints::OrientationPtr_t> 				orientationConstraints_;
 		/// Vector of Relative Position Constraints
-		std::vector <hpp::constraints::RelativePositionPtr_t>		relativePositionConstraints_;
+		std::map <std::string, hpp::constraints::RelativePositionPtr_t>			relativePositionConstraints_;
 		/// Vector of Relative Orientation Constraints
-		std::vector <hpp::constraints::RelativeOrientationPtr_t>	relativeOrientationConstraints_;
+		std::map <std::string, hpp::constraints::RelativeOrientationPtr_t>		relativeOrientationConstraints_;
 		/// Vector of Relative Transformation Constraints
-		std::vector <hpp::constraints::RelativeTransformationPtr_t>	relativeTransformationConstraints_;
+		std::map <std::string, hpp::constraints::RelativeTransformationPtr_t>	relativeTransformationConstraints_;
 		/// Vector of Relative Center Of Mass Constraints
-		std::vector <hpp::constraints::RelativeComPtr_t>			relativeComConstraints_;
+		std::map <std::string, hpp::constraints::RelativeComPtr_t>				relativeComConstraints_;
 	};
   }
 }

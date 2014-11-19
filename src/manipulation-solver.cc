@@ -32,114 +32,108 @@ namespace hpp {
 	void ManipulationSolver::addPositionConstraint (const std::string& name, const hpp::constraints::PositionPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		positionConstraints_.push_back(constraint);
+		positionConstraints_ [name] = constraint;
 	}
 
 	void ManipulationSolver::addOrientationConstraint (const std::string& name, const hpp::constraints::OrientationPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		orientationConstraints_.push_back(constraint);
+		orientationConstraints_ [name] = constraint;
 	}
 
 	void ManipulationSolver::addRelativePositionConstraint (const std::string& name, const hpp::constraints::RelativePositionPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		relativePositionConstraints_.push_back(constraint);
+		relativePositionConstraints_ [name] = constraint;
 	}
 
 	void ManipulationSolver::addRelativeOrientationConstraint (const std::string& name, const hpp::constraints::RelativeOrientationPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		relativeOrientationConstraints_.push_back(constraint);
+		relativeOrientationConstraints_ [name] = constraint;
 	}
 
 	void ManipulationSolver::addRelativeTransformationConstraint (const std::string& name, const hpp::constraints::RelativeTransformationPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		relativeTransformationConstraints_.push_back(constraint);
+		relativeTransformationConstraints_ [name] = constraint;
 	}
 
 	void ManipulationSolver::addRelativeComConstraint (const std::string& name, const hpp::constraints::RelativeComPtr_t& constraint)
 	{
 		NumericalConstraintMap_ [name] = constraint;
-		relativeComConstraints_.push_back(constraint);
+		relativeComConstraints_ [name] = constraint;
 	}
 
 	hpp::constraints::PositionPtr_t ManipulationSolver::getPositionConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::PositionPtr_t result;
-		for (int i = 0; i < positionConstraints_.size(); i++)
-		{
-			if (positionConstraints_[i]->name() == constraintName)
-				result = positionConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Position constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::PositionPtr_t>::iterator it = positionConstraints_.find(constraintName);
+		if (it != positionConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Position constraints does not exist in this solver" << std::endl;
 		return result;
 	}
 
 	hpp::constraints::OrientationPtr_t ManipulationSolver::getOrientationConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::OrientationPtr_t result;
-		for (int i = 0; i < orientationConstraints_.size(); i++)
-		{
-			if (orientationConstraints_[i]->name() == constraintName)
-				result = orientationConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Orientation constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::OrientationPtr_t>::iterator it = orientationConstraints_.find(constraintName);
+		if (it != orientationConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Orientation constraints does not exist in this solver" << std::endl;
 		return result;
 	}
 
 	hpp::constraints::RelativePositionPtr_t ManipulationSolver::getRelativePositionConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::RelativePositionPtr_t result;
-		for (int i = 0; i < relativePositionConstraints_.size(); i++)
-		{
-			if (relativePositionConstraints_[i]->name() == constraintName)
-				result = relativePositionConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Relative Position constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::RelativePositionPtr_t>::iterator it = relativePositionConstraints_.find(constraintName);
+		if (it != relativePositionConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Relative Position constraints does not exist in this solver" << std::endl;
 		return result;
 	}
 
 	hpp::constraints::RelativeOrientationPtr_t ManipulationSolver::getRelativeOrientationConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::RelativeOrientationPtr_t result;
-		for (int i = 0; i < relativeOrientationConstraints_.size(); i++)
-		{
-			if (relativeOrientationConstraints_[i]->name() == constraintName)
-				result = relativeOrientationConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Relative Orientation constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::RelativeOrientationPtr_t>::iterator it = relativeOrientationConstraints_.find(constraintName);
+		if (it != relativeOrientationConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Relative Orientation constraints does not exist in this solver" << std::endl;
 		return result;
 	}
 
 	hpp::constraints::RelativeTransformationPtr_t ManipulationSolver::getRelativeTransformationConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::RelativeTransformationPtr_t result;
-		for (int i = 0; i < relativeTransformationConstraints_.size(); i++)
-		{
-			if (relativeTransformationConstraints_[i]->name() == constraintName)
-				result = relativeTransformationConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Relative Transformation constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::RelativeTransformationPtr_t>::iterator it = relativeTransformationConstraints_.find(constraintName);
+		if (it != relativeTransformationConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Relative Transformation constraints does not exist in this solver" << std::endl;
 		return result;
 	}
 
 	hpp::constraints::RelativeComPtr_t ManipulationSolver::getRelativeComConstraint (const std::string& constraintName)
 	{
 		hpp::constraints::RelativeComPtr_t result;
-		for (int i = 0; i < relativeComConstraints_.size(); i++)
-		{
-			if (relativeComConstraints_[i]->name() == constraintName)
-				result = relativeComConstraints_[i];
-		}
-		if (!result)
-			std::cout << "ERROR : Relative Com constraints does not exist in this solver" << std::endl;
+
+		std::map <std::string, hpp::constraints::RelativeComPtr_t>::iterator it = relativeComConstraints_.find(constraintName);
+		if (it != relativeComConstraints_.end())
+			result = it->second;
+		// else
+		// 	std::cout << "ERROR : Relative Com constraints does not exist in this solver" << std::endl;
 		return result;
 	}
   }
